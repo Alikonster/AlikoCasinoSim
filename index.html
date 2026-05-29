@@ -1493,8 +1493,8 @@ function checkBrokeBonus() {
     if (remaining > 0) {
       const h = Math.floor(remaining / 3600000);
       const m = Math.floor((remaining % 3600000) / 60000);
-      showToast(`💸 Ты на мели! Бонус через ${pad(h)}:${pad(m)}. Держи $100 на удачу!`);
-      changeBalance(100);
+      showToast(`💸 Ты на мели! Бонус через ${pad(h)}:${pad(m)}. Держи $1 на удачу!`);
+      changeBalance(1);
     }
   }
 }
