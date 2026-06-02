@@ -265,6 +265,16 @@
 
   .bet-amount-display span { font-size: 20px; color: var(--gold2); font-family: 'Playfair Display', serif; }
 
+  /* Hide native number spinners on all inline bet inputs */
+  #bjBetDisplay::-webkit-outer-spin-button, #bjBetDisplay::-webkit-inner-spin-button,
+  #holBetDisplay::-webkit-outer-spin-button, #holBetDisplay::-webkit-inner-spin-button,
+  #rlBetDisplay::-webkit-outer-spin-button, #rlBetDisplay::-webkit-inner-spin-button,
+  #slBetDisplay::-webkit-outer-spin-button, #slBetDisplay::-webkit-inner-spin-button,
+  #cfBetDisplay::-webkit-outer-spin-button, #cfBetDisplay::-webkit-inner-spin-button,
+  #dcBetDisplay::-webkit-outer-spin-button, #dcBetDisplay::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  #bjBetDisplay[type=number], #holBetDisplay[type=number], #rlBetDisplay[type=number],
+  #slBetDisplay[type=number], #cfBetDisplay[type=number], #dcBetDisplay[type=number] { -moz-appearance: textfield; }
+
   .btn-clear {
     background: transparent;
     border: 1px solid var(--red);
@@ -404,20 +414,20 @@
     margin-bottom: 8px;
   }
 
-  .bj-cards { display: flex; gap: 8px; flex-wrap: wrap; min-height: 90px; align-items: center; }
+  .bj-cards { display: flex; gap: 10px; flex-wrap: wrap; min-height: 130px; align-items: center; }
 
   .card {
-    width: 62px;
-    height: 90px;
+    width: 88px;
+    height: 126px;
     background: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 700;
     border: 2px solid #e0e0e0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.55);
     animation: dealCard 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -433,8 +443,8 @@
     border-color: #2a4aa0;
   }
 
-  .card-rank { font-size: 16px; font-family: 'Playfair Display', serif; }
-  .card-suit { font-size: 18px; }
+  .card-rank { font-size: 22px; font-family: 'Playfair Display', serif; }
+  .card-suit { font-size: 26px; }
 
   @keyframes dealCard {
     from { transform: translateY(-20px) rotate(-5deg); opacity: 0; }
@@ -468,13 +478,13 @@
 
   .wheel-wrapper {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
   }
 
   .roulette-wheel {
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     border: 4px solid var(--gold);
     position: relative;
@@ -550,14 +560,15 @@
   .rn-btn {
     aspect-ratio: 1;
     border: 1px solid var(--border);
-    border-radius: 3px;
-    font-size: 9px;
+    border-radius: 4px;
+    font-size: 12px;
     cursor: pointer;
     transition: all 0.15s;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Oswald', sans-serif;
+    min-height: 36px;
   }
 
   .rn-btn.r { background: rgba(230,57,70,0.2); color: var(--red); border-color: rgba(230,57,70,0.3); }
@@ -573,36 +584,23 @@
     border-radius: 16px;
     padding: 32px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
   }
 
-  .slot-machine::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: conic-gradient(transparent 0deg, rgba(212,160,23,0.05) 90deg, transparent 180deg);
-    animation: rotate 8s linear infinite;
-  }
-
-  @keyframes rotate { to { transform: rotate(360deg); } }
+  /* glass effect removed */
 
   .slot-reels {
     display: flex;
     justify-content: center;
     gap: 8px;
     margin: 24px 0;
-    position: relative;
-    z-index: 1;
   }
 
   .slot-reel {
-    width: 90px;
-    height: 100px;
+    width: 120px;
+    height: 140px;
     background: var(--dark);
     border: 2px solid rgba(212,160,23,0.3);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -614,7 +612,7 @@
     content: '';
     position: absolute;
     left: 0; right: 0;
-    height: 30px;
+    height: 36px;
     z-index: 2;
     pointer-events: none;
   }
@@ -622,7 +620,7 @@
   .slot-reel::after { bottom: 0; background: linear-gradient(0deg, var(--dark) 0%, transparent 100%); }
 
   .reel-symbol {
-    font-size: 48px;
+    font-size: 72px;
     line-height: 1;
     transition: all 0.1s;
     position: relative;
@@ -657,8 +655,6 @@
     text-align: left;
     font-size: 12px;
     color: var(--muted);
-    position: relative;
-    z-index: 1;
   }
 
   .pay-row { display: flex; align-items: center; gap: 8px; }
@@ -755,9 +751,9 @@
   .coin-area { text-align: center; padding: 20px 0; }
 
   .coin {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 24px;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 28px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.1s;
@@ -770,10 +766,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
+    font-size: 72px;
     backface-visibility: hidden;
-    border: 4px solid var(--gold);
-    box-shadow: 0 0 30px rgba(212,160,23,0.4);
+    border: 5px solid var(--gold);
+    box-shadow: 0 0 40px rgba(212,160,23,0.4);
   }
 
   .coin-heads { background: radial-gradient(circle, #d4a017, #8a6010); }
@@ -810,22 +806,20 @@
   .dice-display {
     display: flex;
     justify-content: center;
-    gap: 16px;
-    margin: 24px 0;
+    gap: 24px;
+    margin: 28px 0;
   }
 
   .die {
-    width: 80px;
-    height: 80px;
+    width: 110px;
+    height: 110px;
     background: white;
-    border-radius: 12px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    padding: 10px;
-    gap: 4px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    border-radius: 18px;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.55), inset 0 1px 3px rgba(255,255,255,0.8);
     transition: transform 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .die.rolling { animation: diceRoll 0.8s ease-out; }
@@ -838,23 +832,7 @@
     100% { transform: rotate(720deg) scale(1); }
   }
 
-  .dot {
-    border-radius: 50%;
-    background: #1a1a2e;
-    width: 100%;
-    height: 100%;
-    display: none;
-  }
-
-  .dot.show { display: block; }
-
-  /* Dot positions for dice faces */
-  .die-1 .dot:nth-child(5) { display: block; }
-  .die-2 .dot:nth-child(3), .die-2 .dot:nth-child(7) { display: block; }
-  .die-3 .dot:nth-child(3), .die-3 .dot:nth-child(5), .die-3 .dot:nth-child(7) { display: block; }
-  .die-4 .dot:nth-child(1), .die-4 .dot:nth-child(3), .die-4 .dot:nth-child(7), .die-4 .dot:nth-child(9) { display: block; }
-  .die-5 .dot:nth-child(1), .die-5 .dot:nth-child(3), .die-5 .dot:nth-child(5), .die-5 .dot:nth-child(7), .die-5 .dot:nth-child(9) { display: block; }
-  .die-6 .dot:nth-child(1), .die-6 .dot:nth-child(3), .die-6 .dot:nth-child(4), .die-6 .dot:nth-child(6), .die-6 .dot:nth-child(7), .die-6 .dot:nth-child(9) { display: block; }
+  .die svg { width: 88px; height: 88px; }
 
   .dice-target-btns {
     display: flex;
@@ -945,13 +923,13 @@
     .game-container { padding: 20px; }
     .logo { font-size: 20px; }
     .balance-amount { font-size: 18px; }
-    .slot-reel { width: 70px; height: 80px; }
-    .reel-symbol { font-size: 36px; }
+    .slot-reel { width: 90px; height: 110px; }
+    .reel-symbol { font-size: 56px; }
   }
 
   .roulette-svg-wheel {
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     border: 4px solid var(--gold);
     box-shadow: 0 0 40px rgba(212,160,23,0.3);
@@ -1035,11 +1013,15 @@
           <div class="chip c100" onclick="addBet('bj', 100)">$100</div>
           <div class="chip c500" onclick="addBet('bj', 500)">$500</div>
         </div>
-        <div class="custom-bet-wrap">
-          <input class="custom-bet-input" id="bjCustomInput" type="number" min="10" max="500" placeholder="Сумма">
+        <div class="custom-bet-wrap" style="display:none">
+          <input class="custom-bet-input" id="bjCustomInput" type="number" min="10" placeholder="Сумма">
           <button class="btn-set-bet" onclick="setCustomBet('bj', 'bjCustomInput')">✓</button>
         </div>
-        <div class="bet-amount-display">💵 <span id="bjBetDisplay">0</span></div>
+        <div class="bet-amount-display">💵 <input id="bjBetDisplay" type="number" min="0" placeholder="0"
+          style="background:transparent;border:none;outline:none;width:80px;font-size:20px;color:var(--gold2);font-family:'Playfair Display',serif;cursor:text;"
+          oninput="setDirectBet('bj', this.value)"
+          onkeydown="if(event.key==='Enter') this.blur()"
+        ></div>
         <button class="btn-allin" onclick="allIn('bj')">Ва-банк</button>
         <button class="btn-clear" onclick="clearBet('bj')">✕ Сброс</button>
       </div>
@@ -1069,7 +1051,7 @@
         <div class="hol-cards-area">
           <div class="hol-card-slot">
             <div class="hol-label">Текущая</div>
-            <div id="holCurrentCard" class="card" style="width:80px;height:115px;font-size:0">
+            <div id="holCurrentCard" class="card" style="width:110px;height:158px;font-size:0">
               <div class="card-rank" id="holCRank">?</div>
               <div class="card-suit" id="holCSuit">🂠</div>
             </div>
@@ -1077,8 +1059,8 @@
           <div class="hol-vs">VS</div>
           <div class="hol-card-slot">
             <div class="hol-label">Следующая</div>
-            <div id="holNextCard" class="card back" style="width:80px;height:115px">
-              <div style="font-size:36px">🂠</div>
+            <div id="holNextCard" class="card back" style="width:110px;height:158px">
+              <div style="font-size:52px">🂠</div>
             </div>
           </div>
         </div>
@@ -1094,11 +1076,15 @@
             <div class="chip c100" onclick="addBet('hol', 100)">$100</div>
             <div class="chip c500" onclick="addBet('hol', 500)">$500</div>
           </div>
-          <div class="custom-bet-wrap">
-            <input class="custom-bet-input" id="holCustomInput" type="number" min="10" max="500" placeholder="Сумма">
+          <div class="custom-bet-wrap" style="display:none">
+            <input class="custom-bet-input" id="holCustomInput" type="number" min="10" placeholder="Сумма">
             <button class="btn-set-bet" onclick="setCustomBet('hol', 'holCustomInput')">✓</button>
           </div>
-          <div class="bet-amount-display">💵 <span id="holBetDisplay">0</span></div>
+          <div class="bet-amount-display">💵 <input id="holBetDisplay" type="number" min="0" placeholder="0"
+            style="background:transparent;border:none;outline:none;width:80px;font-size:20px;color:var(--gold2);font-family:'Playfair Display',serif;cursor:text;"
+            oninput="setDirectBet('hol', this.value)"
+            onkeydown="if(event.key==='Enter') this.blur()"
+          ></div>
           <button class="btn-allin" onclick="allIn('hol')">Ва-банк</button>
           <button class="btn-clear" onclick="clearBet('hol')">✕</button>
         </div>
@@ -1111,6 +1097,7 @@
 
         <div class="action-buttons" style="justify-content:center">
           <button class="btn-primary" id="holStartBtn" onclick="holStart()">Начать игру</button>
+          <button class="btn-primary" id="holContinueBtn" onclick="holContinue()" style="display:none;" disabled>Продолжить</button>
           <button class="btn-secondary" id="holCashoutBtn" onclick="holCashout()" disabled>💰 Забрать</button>
         </div>
       </div>
@@ -1177,14 +1164,10 @@
               3️⃣ 3я дюжина
               <span class="bet-odds">×3 (32.4%)</span>
             </div>
-            <div class="roulette-bet-btn" onclick="selectRouletteBet('number')" id="rbNumber">
+            <div class="roulette-bet-btn" onclick="openNumberModal()" id="rbNumber">
               🎯 Число (выбрать)
-              <span class="bet-odds">×36 (2.7%)</span>
+              <span class="bet-odds" id="rbNumberLabel">×36 (2.7%)</span>
             </div>
-          </div>
-
-          <div id="numberGrid" style="display:none;margin-top:8px">
-            <div class="roulette-number-grid" id="rouletteNumberGrid"></div>
           </div>
         </div>
       </div>
@@ -1200,11 +1183,15 @@
           <div class="chip c100" onclick="addBet('rl', 100)">$100</div>
           <div class="chip c500" onclick="addBet('rl', 500)">$500</div>
         </div>
-        <div class="custom-bet-wrap">
-          <input class="custom-bet-input" id="rlCustomInput" type="number" min="10" max="500" placeholder="Сумма">
+        <div class="custom-bet-wrap" style="display:none">
+          <input class="custom-bet-input" id="rlCustomInput" type="number" min="10" placeholder="Сумма">
           <button class="btn-set-bet" onclick="setCustomBet('rl', 'rlCustomInput')">✓</button>
         </div>
-        <div class="bet-amount-display">💵 <span id="rlBetDisplay">0</span></div>
+        <div class="bet-amount-display">💵 <input id="rlBetDisplay" type="number" min="0" placeholder="0"
+          style="background:transparent;border:none;outline:none;width:80px;font-size:20px;color:var(--gold2);font-family:'Playfair Display',serif;cursor:text;"
+          oninput="setDirectBet('rl', this.value)"
+          onkeydown="if(event.key==='Enter') this.blur()"
+        ></div>
         <button class="btn-allin" onclick="allIn('rl')">Ва-банк</button>
         <button class="btn-clear" onclick="clearBet('rl')">✕</button>
       </div>
@@ -1262,11 +1249,15 @@
           <div class="chip c100" onclick="addBet('sl', 100)">$100</div>
           <div class="chip c500" onclick="addBet('sl', 500)">$500</div>
         </div>
-        <div class="custom-bet-wrap">
-          <input class="custom-bet-input" id="slCustomInput" type="number" min="10" max="500" placeholder="Сумма">
+        <div class="custom-bet-wrap" style="display:none">
+          <input class="custom-bet-input" id="slCustomInput" type="number" min="10" placeholder="Сумма">
           <button class="btn-set-bet" onclick="setCustomBet('sl', 'slCustomInput')">✓</button>
         </div>
-        <div class="bet-amount-display">💵 <span id="slBetDisplay">0</span></div>
+        <div class="bet-amount-display">💵 <input id="slBetDisplay" type="number" min="0" placeholder="0"
+          style="background:transparent;border:none;outline:none;width:80px;font-size:20px;color:var(--gold2);font-family:'Playfair Display',serif;cursor:text;"
+          oninput="setDirectBet('sl', this.value)"
+          onkeydown="if(event.key==='Enter') this.blur()"
+        ></div>
         <button class="btn-allin" onclick="allIn('sl')">Ва-банк</button>
         <button class="btn-clear" onclick="clearBet('sl')">✕</button>
       </div>
@@ -1307,11 +1298,15 @@
           <div class="chip c100" onclick="addBet('cf', 100)">$100</div>
           <div class="chip c500" onclick="addBet('cf', 500)">$500</div>
         </div>
-        <div class="custom-bet-wrap">
-          <input class="custom-bet-input" id="cfCustomInput" type="number" min="10" max="500" placeholder="Сумма">
+        <div class="custom-bet-wrap" style="display:none">
+          <input class="custom-bet-input" id="cfCustomInput" type="number" min="10" placeholder="Сумма">
           <button class="btn-set-bet" onclick="setCustomBet('cf', 'cfCustomInput')">✓</button>
         </div>
-        <div class="bet-amount-display">💵 <span id="cfBetDisplay">0</span></div>
+        <div class="bet-amount-display">💵 <input id="cfBetDisplay" type="number" min="0" placeholder="0"
+          style="background:transparent;border:none;outline:none;width:80px;font-size:20px;color:var(--gold2);font-family:'Playfair Display',serif;cursor:text;"
+          oninput="setDirectBet('cf', this.value)"
+          onkeydown="if(event.key==='Enter') this.blur()"
+        ></div>
         <button class="btn-allin" onclick="allIn('cf')">Ва-банк</button>
         <button class="btn-clear" onclick="clearBet('cf')">✕</button>
       </div>
@@ -1330,38 +1325,29 @@
 
       <div class="dice-area">
         <div class="dice-display">
-          <div class="die die-1" id="die1">
-            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-          </div>
-          <div class="die die-6" id="die2">
-            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-          </div>
+          <div class="die die-1" id="die1"></div>
+          <div class="die die-6" id="die2"></div>
         </div>
 
         <div id="diceSum" style="font-family:'Playfair Display',serif;font-size:28px;color:var(--gold2);text-align:center;min-height:40px"></div>
 
         <div style="font-size:11px;color:var(--muted);letter-spacing:2px;text-align:center;margin:16px 0 8px;text-transform:uppercase">Сумма двух кубиков</div>
         <div class="dice-target-btns">
-          <div class="target-btn" onclick="selectDiceTarget(this,'2','×36')">2<span class="odds">×36</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'3','×18')">3<span class="odds">×18</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'4','×12')">4<span class="odds">×12</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'5','×9')">5<span class="odds">×9</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'6','×7')">6<span class="odds">×7</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'7','×6')">7<span class="odds">×6</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'8','×7')">8<span class="odds">×7</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'9','×9')">9<span class="odds">×9</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'10','×12')">10<span class="odds">×12</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'11','×18')">11<span class="odds">×18</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'12','×36')">12<span class="odds">×36</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'2','×6')">2<span class="odds">×6</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'3','×6')">3<span class="odds">×6</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'4','×6')">4<span class="odds">×6</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'5','×6')">5<span class="odds">×6</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'6','×6')">6<span class="odds">×6</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'8','×6')">8<span class="odds">×6</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'9','×6')">9<span class="odds">×6</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'10','×6')">10<span class="odds">×6</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'11','×6')">11<span class="odds">×6</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'12','×6')">12<span class="odds">×6</span></div>
         </div>
         <div style="display:flex;gap:8px;justify-content:center;margin-top:8px;flex-wrap:wrap">
-          <div class="target-btn" onclick="selectDiceTarget(this,'low','×2')">2-6 (мало)<span class="odds">×2</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'high','×2')">8-12 (много)<span class="odds">×2</span></div>
-          <div class="target-btn" onclick="selectDiceTarget(this,'seven','×5')">Любые 7<span class="odds">×5</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'low','×1.5')">2-6 (мало)<span class="odds">×1.5</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'high','×1.5')">8-12 (много)<span class="odds">×1.5</span></div>
+          <div class="target-btn" onclick="selectDiceTarget(this,'seven','×2')">Любые 7<span class="odds">×2</span></div>
         </div>
       </div>
 
@@ -1376,11 +1362,15 @@
           <div class="chip c100" onclick="addBet('dc', 100)">$100</div>
           <div class="chip c500" onclick="addBet('dc', 500)">$500</div>
         </div>
-        <div class="custom-bet-wrap">
-          <input class="custom-bet-input" id="dcCustomInput" type="number" min="10" max="500" placeholder="Сумма">
+        <div class="custom-bet-wrap" style="display:none">
+          <input class="custom-bet-input" id="dcCustomInput" type="number" min="10" placeholder="Сумма">
           <button class="btn-set-bet" onclick="setCustomBet('dc', 'dcCustomInput')">✓</button>
         </div>
-        <div class="bet-amount-display">💵 <span id="dcBetDisplay">0</span></div>
+        <div class="bet-amount-display">💵 <input id="dcBetDisplay" type="number" min="0" placeholder="0"
+          style="background:transparent;border:none;outline:none;width:80px;font-size:20px;color:var(--gold2);font-family:'Playfair Display',serif;cursor:text;"
+          oninput="setDirectBet('dc', this.value)"
+          onkeydown="if(event.key==='Enter') this.blur()"
+        ></div>
         <button class="btn-allin" onclick="allIn('dc')">Ва-банк</button>
         <button class="btn-clear" onclick="clearBet('dc')">✕</button>
       </div>
@@ -1404,6 +1394,25 @@
 
 <!-- Toast -->
 <div class="toast" id="toast"></div>
+
+<!-- Roulette number picker modal -->
+<div id="numberModal" style="display:none;position:fixed;inset:0;z-index:500;align-items:center;justify-content:center;">
+  <div id="numberModalBackdrop" onclick="closeNumberModal()"
+    style="position:absolute;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);"></div>
+  <div style="position:relative;z-index:1;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;width:340px;max-width:95vw;box-shadow:0 24px 64px rgba(0,0,0,0.7);">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+      <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--gold2);">🎯 Выбери число</div>
+      <button onclick="closeNumberModal()" style="background:transparent;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:0 4px;">&times;</button>
+    </div>
+    <div class="roulette-number-grid" id="rouletteNumberGrid" style="grid-template-columns:repeat(7,1fr);gap:5px;"></div>
+    <div style="margin-top:16px;text-align:center;font-size:11px;color:var(--muted);letter-spacing:1px;">
+      Выбранное число: <span id="modalSelectedNum" style="color:var(--gold2);font-family:'Playfair Display',serif;font-size:14px;">—</span>
+    </div>
+    <div style="margin-top:14px;display:flex;justify-content:center;">
+      <button onclick="confirmNumber()" class="btn-primary" style="padding:10px 36px;">Подтвердить</button>
+    </div>
+  </div>
+</div>
 
 <script>
 /* ============================================================
@@ -1481,24 +1490,6 @@ function updateStats() {
   document.getElementById('statTotal').textContent  = '$' + state.stats.totalWon.toLocaleString('ru-RU');
 }
 
-// ── Broke safety net ──────────────────────────────────────
-
-/**
- * Called after every round. If the player is nearly broke and the bonus is not
- * yet ready, hand out $100 free chips so they can keep playing.
- */
-function checkBrokeBonus() {
-  if (state.balance < 10) {
-    const remaining = BONUS_INTERVAL - (Date.now() - state.lastBonus);
-    if (remaining > 0) {
-      const h = Math.floor(remaining / 3600000);
-      const m = Math.floor((remaining % 3600000) / 60000);
-      showToast(`💸 Ты на мели! Бонус через ${pad(h)}:${pad(m)}. Держи $1 на удачу!`);
-      changeBalance(1);
-    }
-  }
-}
-
 // ── Bonus timer ───────────────────────────────────────────
 
 /** Zero-pad a number to 2 digits (used for timer display). */
@@ -1534,6 +1525,18 @@ function claimBonus() {
   saveState();
 }
 
+/**
+ * Check if the player is broke (balance = 0) and automatically give them
+ * a small emergency bonus so they can keep playing.
+ */
+function checkBrokeBonus() {
+  if (state.balance <= 0) {
+    const emergency = 200;
+    changeBalance(emergency);
+    showToast(`💸 Баланс пустой! Получи $${emergency} для продолжения! 🎁`, 4000);
+  }
+}
+
 setInterval(updateBonusTimer, 1000); // update timer display every second
 updateBonusTimer();                  // run immediately on load
 
@@ -1563,7 +1566,7 @@ function showGame(name, btn) {
 
 const bets = { bj: 0, hol: 0, rl: 0, sl: 0, cf: 0, dc: 0 };
 
-// Maps game key → the <span> id that shows the current bet amount
+// Maps game key → the element id that shows the current bet amount
 const betDisplayIds = {
   bj:  'bjBetDisplay',
   hol: 'holBetDisplay',
@@ -1573,6 +1576,14 @@ const betDisplayIds = {
   dc:  'dcBetDisplay'
 };
 
+/** Write a bet value to its display element (works for both <span> and <input>). */
+function setBetDisplay(game, val) {
+  const el = document.getElementById(betDisplayIds[game]);
+  if (!el) return;
+  if (el.tagName === 'INPUT') el.value = val || '';
+  else el.textContent = val;
+}
+
 /** Add chips to the pending bet for a game. Rejects if balance is insufficient. */
 function addBet(game, amount) {
   if (bets[game] + amount > state.balance) {
@@ -1580,31 +1591,41 @@ function addBet(game, amount) {
     return;
   }
   bets[game] += amount;
-  document.getElementById(betDisplayIds[game]).textContent = bets[game];
+  setBetDisplay(game, bets[game]);
 }
 
 /** Reset the pending bet for a game back to zero. */
 function clearBet(game) {
   bets[game] = 0;
-  document.getElementById(betDisplayIds[game]).textContent = 0;
+  setBetDisplay(game, 0);
 }
 
 /** Set bet to full current balance (all-in). */
 function allIn(game) {
   if (state.balance <= 0) { showToast('Баланс пустой!'); return; }
   bets[game] = state.balance;
-  document.getElementById(betDisplayIds[game]).textContent = bets[game];
+  setBetDisplay(game, bets[game]);
 }
 
-/** Set a custom bet amount from an input field (clamped 10–500, can't exceed balance). */
+/** Set a custom bet amount from an input field (clamped to balance). */
 function setCustomBet(game, inputId) {
   const raw = parseInt(document.getElementById(inputId).value, 10);
   if (isNaN(raw) || raw < 10) { showToast('Минимальная ставка $10!'); return; }
   const amount = Math.min(raw, state.balance);
   if (amount <= 0) { showToast('Недостаточно средств!'); return; }
   bets[game] = amount;
-  document.getElementById(betDisplayIds[game]).textContent = bets[game];
+  setBetDisplay(game, bets[game]);
   document.getElementById(inputId).value = '';
+}
+
+/** Set bet directly from the inline input in the display (works for all games). */
+function setDirectBet(game, val) {
+  const raw = parseInt(val, 10);
+  if (isNaN(raw) || raw <= 0) { bets[game] = 0; return; }
+  bets[game] = Math.min(raw, state.balance);
+  // Clamp visually if input exceeds balance
+  const el = document.getElementById(betDisplayIds[game]);
+  if (el && bets[game] < raw) el.value = bets[game];
 }
 
 /** Return true if the pending bet is valid; show a toast and return false otherwise. */
@@ -1642,10 +1663,10 @@ const rankValues = {
   '8':8,  '9':9, '10':10, 'J':10, 'Q':10, 'K':10
 };
 
-// For Higher/Lower: proper ordering 2 < 3 < ... < 10 < J < Q < K < A
+// For Higher/Lower: proper ordering 1 < 2 < 3 < ... < 10 < J < Q < K
 const holRankValues = {
-  '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9,
-  '10':10, 'J':11, 'Q':12, 'K':13, 'A':14
+  'A':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9,
+  '10':10, 'J':11, 'Q':12, 'K':13
 };
 
 /** Build and return a freshly shuffled 52-card deck. */
@@ -1823,6 +1844,7 @@ let holDeck = [], holCurrentCard = null;
 let holStreak = 0;  // consecutive correct guesses this session
 let holPot    = 0;  // current stake (grows with multiplier on cashout)
 let holPlaying = false;
+let holWaitingDecision = false;
 
 /** Start a new Higher-or-Lower session: deduct bet and deal the first card. */
 function holStart() {
@@ -1835,9 +1857,14 @@ function holStart() {
   holDeck    = newDeck();
   holCurrentCard = holDeck.pop();
   holPlaying = true;
+  holWaitingDecision = false;
 
   renderHolCard();
-  document.getElementById('holStartBtn').disabled   = true;
+  
+  document.getElementById('holStartBtn').style.display = 'none';
+  document.getElementById('holContinueBtn').style.display = 'inline-block';
+  document.getElementById('holContinueBtn').disabled = true;
+  
   document.getElementById('holHigherBtn').disabled  = false;
   document.getElementById('holEqualBtn').disabled   = false;
   document.getElementById('holLowerBtn').disabled   = false;
@@ -1850,29 +1877,28 @@ function renderHolCard() {
   const isRed = redSuits.includes(holCurrentCard.suit);
   const cur   = document.getElementById('holCurrentCard');
   cur.className  = 'card' + (isRed ? ' red' : '');
-  cur.style.cssText = 'width:80px;height:115px;font-size:0';
+  cur.style.cssText = 'width:110px;height:158px;font-size:0';
   document.getElementById('holCRank').textContent = holCurrentCard.rank;
   document.getElementById('holCSuit').textContent = holCurrentCard.suit;
 
   const nxt = document.getElementById('holNextCard');
-  nxt.innerHTML  = '<div style="font-size:36px">🂠</div>';
+  nxt.innerHTML  = '<div style="font-size:52px">🂠</div>';
   nxt.className  = 'card back';
-  nxt.style.cssText = 'width:80px;height:115px';
+  nxt.style.cssText = 'width:110px;height:158px';
 }
 
 /** Refresh the streak counter and current multiplier display. */
 function updateHolInfo() {
   const mult = getHolMultiplier();
   document.getElementById('holStreak').textContent     = holStreak;
-  document.getElementById('holMultiplier').textContent = '×' + mult.toFixed(1);
+  document.getElementById('holMultiplier').textContent = '×' + mult.toFixed(2);
 }
 
 /**
  * Return the payout multiplier for the current streak.
- * Each consecutive correct guess multiplies by 1.9 (house edge ~5%).
  */
 function getHolMultiplier() {
-  return holStreak === 0 ? 1.0 : Math.pow(1.9, holStreak);
+  return holStreak === 0 ? 1.0 : Math.pow(1.5, holStreak);
 }
 
 /**
@@ -1880,7 +1906,7 @@ function getHolMultiplier() {
  * @param {string} guess - 'higher' | 'lower' | 'equal'
  */
 function holGuess(guess) {
-  if (!holPlaying) return;
+  if (!holPlaying || holWaitingDecision) return;
 
   const nextCard = holDeck.pop();
   const cv = holRankValues[holCurrentCard.rank];
@@ -1890,7 +1916,7 @@ function holGuess(guess) {
   const nextEl = document.getElementById('holNextCard');
   const isRed  = redSuits.includes(nextCard.suit);
   nextEl.className  = 'card' + (isRed ? ' red' : '');
-  nextEl.style.cssText = 'width:80px;height:115px;font-size:0';
+  nextEl.style.cssText = 'width:110px;height:158px;font-size:0';
   nextEl.innerHTML  = `<div class="card-rank">${nextCard.rank}</div><div class="card-suit">${nextCard.suit}</div>`;
 
   // Evaluate correctness
@@ -1899,35 +1925,57 @@ function holGuess(guess) {
   else if (guess === 'lower')  correct = nv < cv;
   else if (guess === 'equal')  correct = nv === cv;
 
+  document.getElementById('holHigherBtn').disabled  = true;
+  document.getElementById('holEqualBtn').disabled   = true;
+  document.getElementById('holLowerBtn').disabled   = true;
+
   setTimeout(() => {
     if (correct) {
       holStreak++;
-      holCurrentCard = nextCard;
       const mult = getHolMultiplier();
-      showResult('holResult', 'win', `Правильно! Серия: ${holStreak} · Банк: $${Math.floor(holPot * mult)}`);
+      const winPotential = Math.floor(holPot * mult);
+      
+      showResult('holResult', 'win', `Правильно! Забрать $${winPotential} или продолжить?`);
       updateHolInfo();
-      renderHolCard();
-      // Auto-cashout when fewer than 2 cards remain in the deck
-      if (holDeck.length < 2) {
-        holCashout();
-        showToast('Колода кончилась! Выигрыш засчитан.');
-      }
+
+      holWaitingDecision = true;
+      document.getElementById('holContinueBtn').disabled = false;
+      
     } else {
       // Wrong guess — player loses the entire pot
       holPlaying = false;
       holStreak  = 0;
-      document.getElementById('holHigherBtn').disabled  = true;
-      document.getElementById('holEqualBtn').disabled   = true;
-      document.getElementById('holLowerBtn').disabled   = true;
+      holWaitingDecision = false;
+      
       document.getElementById('holCashoutBtn').disabled = true;
-      document.getElementById('holStartBtn').disabled   = false;
+      document.getElementById('holContinueBtn').style.display = 'none';
+      document.getElementById('holStartBtn').style.display = 'inline-block';
+      document.getElementById('holStartBtn').disabled = false;
+
       showResult('holResult', 'lose', `Неверно! Карта была ${nextCard.rank}${nextCard.suit}. Потеряно $${holPot}`);
       recordResult(false, holPot);
       holPot = 0;
       updateHolInfo();
-      checkBrokeBonus();
+      
+      if (typeof checkBrokeBonus === 'function') checkBrokeBonus();
     }
   }, 300);
+}
+
+function holContinue() {
+  if (!holWaitingDecision) return;
+
+  holWaitingDecision = false;
+  document.getElementById('holContinueBtn').disabled = true;
+
+  holDeck = newDeck();
+  holCurrentCard = holDeck.pop();
+  renderHolCard();
+
+  document.getElementById('holHigherBtn').disabled  = false;
+  document.getElementById('holEqualBtn').disabled   = false;
+  document.getElementById('holLowerBtn').disabled   = false;
+
 }
 
 /**
@@ -1945,15 +1993,23 @@ function holCashout() {
     const winnings = Math.floor(holPot * mult);
     changeBalance(winnings);
     recordResult(true, winnings - holPot);
-    showResult('holResult', 'win', `Забрал $${winnings}! (×${mult.toFixed(1)}) 💰`);
+    showResult('holResult', 'win', `Забрал $${winnings}! (×${mult.toFixed(2)}) 💰`);
   }
 
-  holPot = 0; holPlaying = false; holStreak = 0;
-  document.getElementById('holStartBtn').disabled   = false;
+  holPot = 0; 
+  holPlaying = false; 
+  holStreak = 0; 
+  holWaitingDecision = false;
+
   document.getElementById('holHigherBtn').disabled  = true;
   document.getElementById('holEqualBtn').disabled   = true;
   document.getElementById('holLowerBtn').disabled   = true;
   document.getElementById('holCashoutBtn').disabled = true;
+
+  document.getElementById('holContinueBtn').style.display = 'none';
+  document.getElementById('holStartBtn').style.display = 'inline-block';
+  document.getElementById('holStartBtn').disabled   = false;
+
   updateHolInfo();
 }
 
@@ -1961,6 +2017,8 @@ function holCashout() {
 
 // Standard European roulette red numbers
 const rouletteRed = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
+// Standard European roulette wheel sequence
+const rouletteSequence = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26];
 
 let selectedRouletteBet    = null; // current bet type key
 let selectedRouletteNumber = null; // chosen number when bet type is 'number'
@@ -1968,7 +2026,7 @@ let rouletteSpinning       = false;
 
 /**
  * Draw the SVG roulette wheel segments and build the number-selection grid.
- * Segments are drawn in order 0-36 starting from 12 o'clock, going clockwise.
+ * Segments are drawn in real European roulette order starting from 12 o'clock.
  */
 function initRouletteWheel() {
   const g      = document.getElementById('wheelSegments');
@@ -1980,6 +2038,7 @@ function initRouletteWheel() {
   rouletteRed.forEach(n => { segColors[n] = '#e63946'; });
 
   for (let i = 0; i < total; i++) {
+    const currentNum = rouletteSequence[i];
     const startAngle = (i / total)       * 2 * Math.PI - Math.PI / 2;
     const endAngle   = ((i + 1) / total) * 2 * Math.PI - Math.PI / 2;
 
@@ -1989,7 +2048,7 @@ function initRouletteWheel() {
     const x2 = cx + r * Math.cos(endAngle);
     const y2 = cy + r * Math.sin(endAngle);
 
-    const color = segColors[i] || '#1a1a1a';
+    const color = segColors[currentNum] || '#1a1a1a'; 
     const path  = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute('d', `M${cx},${cy} L${x1},${y1} A${r},${r} 0 0,1 ${x2},${y2} Z`);
     path.setAttribute('fill',         color);
@@ -2013,11 +2072,11 @@ function initRouletteWheel() {
     text.setAttribute('font-size',        '6');
     text.setAttribute('font-family',      'Oswald,sans-serif');
     text.setAttribute('transform',        `rotate(${deg},${tx},${ty})`);
-    text.textContent = i;
+    text.textContent = currentNum; 
     g.appendChild(text);
   }
 
-  // Build the clickable number grid below the bet-type buttons
+  // Build the clickable number grid below the bet-type buttons 
   const grid = document.getElementById('rouletteNumberGrid');
   grid.innerHTML = '';
   for (let n = 0; n <= 36; n++) {
@@ -2025,16 +2084,17 @@ function initRouletteWheel() {
     const btn = document.createElement('div');
     btn.className = 'rn-btn ' + colorClass;
     btn.textContent = n;
+    btn.dataset.num = n;
     btn.onclick = () => {
       document.querySelectorAll('.rn-btn').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
-      selectedRouletteNumber = n;
+      document.getElementById('modalSelectedNum').textContent = n;
     };
     grid.appendChild(btn);
   }
 }
 
-/** Highlight the chosen bet-type button and show/hide the number grid. */
+/** Highlight the chosen bet-type button. */
 function selectRouletteBet(type) {
   const idMap = {
     red: 'rbRed', black: 'rbBlack', even: 'rbEven', odd: 'rbOdd',
@@ -2047,27 +2107,40 @@ function selectRouletteBet(type) {
   if (idMap[type]) document.getElementById(idMap[type])?.classList.add('selected');
 
   selectedRouletteBet    = type;
-  selectedRouletteNumber = null; // reset number selection on bet-type change
+  selectedRouletteNumber = null;
+  document.querySelectorAll('.rn-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById('modalSelectedNum').textContent = '—';
+  document.getElementById('rbNumberLabel').textContent = '×36 (2.7%)';
+}
 
-  // Show the number-picker grid only for straight-up bets
-  document.getElementById('numberGrid').style.display = type === 'number' ? 'block' : 'none';
-  if (type !== 'number') {
-    document.querySelectorAll('.rn-btn').forEach(b => b.classList.remove('selected'));
-  }
+/** Open the number picker modal. */
+function openNumberModal() {
+  selectRouletteBet('number');
+  const modal = document.getElementById('numberModal');
+  modal.style.display = 'flex';
+  requestAnimationFrame(() => modal.style.opacity = '1');
+}
+
+/** Close the number picker modal without confirming. */
+function closeNumberModal() {
+  document.getElementById('numberModal').style.display = 'none';
+}
+
+/** Confirm the selected number and close the modal. */
+function confirmNumber() {
+  const selected = document.querySelector('.rn-btn.selected');
+  if (!selected) { showToast('Выбери число!'); return; }
+  selectedRouletteNumber = parseInt(selected.dataset.num, 10);
+  const label = selectedRouletteNumber === 0
+    ? '🟢 Зеро'
+    : (rouletteRed.includes(selectedRouletteNumber) ? '🔴' : '⚫') + ' ' + selectedRouletteNumber;
+  document.getElementById('rbNumber').childNodes[0].textContent = `🎯 ${label} `;
+  document.getElementById('rbNumberLabel').textContent = '×36 (2.7%)';
+  closeNumberModal();
 }
 
 /**
  * Spin the roulette wheel and settle the bet.
- *
- * Angle maths:
- *   CSS rotate(R deg) turns the wheel clockwise.
- *   After rotating R degrees the segment originally at (360 - R) % 360 degrees
- *   (clockwise from 12 o'clock) ends up under the fixed top indicator.
- *
- *   Segment i has its centre at (i + 0.5) × segmentAngle degrees from 12 o'clock.
- *   To land segment `result` under the indicator:
- *     360 - R  =  (result + 0.5) × segmentAngle
- *     R        =  360 - (result + 0.5) × segmentAngle
  */
 function rouletteSpin() {
   if (rouletteSpinning) return;
@@ -2088,8 +2161,10 @@ function rouletteSpin() {
   const result       = Math.floor(Math.random() * 37); // winning number 0–36
   const segmentAngle = 360 / 37;
 
+  const resultIndex  = rouletteSequence.indexOf(result);
+
   // Calculate the stop angle so the correct segment faces the indicator
-  const targetCenter = (result + 0.5) * segmentAngle;
+  const targetCenter = (resultIndex + 0.5) * segmentAngle;
   const stopAngle    = (360 - targetCenter + 360) % 360; // normalised to 0–360
   const spins        = 5 + Math.floor(Math.random() * 4);  // 5–8 full rotations
   const finalAngle   = spins * 360 + stopAngle;
@@ -2137,10 +2212,9 @@ function rouletteSpin() {
 
     rouletteSpinning = false;
     document.getElementById('rlSpinBtn').disabled = false;
-    checkBrokeBonus();
+    if (typeof checkBrokeBonus === 'function') checkBrokeBonus();
   }, 4200);
 }
-
 // ── Slots ─────────────────────────────────────────────────
 
 // Symbols ordered from most to least common (matching weights below)
@@ -2300,32 +2374,34 @@ function selectDiceTarget(el, target, mult) {
   document.querySelectorAll('.target-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
   diceTarget          = target;
-  diceMultiplierValue = parseInt(mult.replace('×', ''), 10);
+  diceMultiplierValue = parseFloat(mult.replace('×', ''));
 }
 
 /**
- * Update the dot pattern on a die face element.
- * The die grid is 3×3; positions are numbered 1–9 (row-major).
- * Only the positions listed in the pattern array get a visible dot.
+ * Render a die face as an SVG with realistic dot positions (like a real die).
+ * Coordinates are in a 64×64 viewBox with dots at canonical positions.
  */
 function renderDie(elId, value) {
   const die = document.getElementById(elId);
   die.className = `die die-${value}`;
-  die.querySelectorAll('.dot').forEach(d => d.classList.remove('show'));
 
-  const patterns = {
-    1: [5],
-    2: [3, 7],
-    3: [3, 5, 7],
-    4: [1, 3, 7, 9],
-    5: [1, 3, 5, 7, 9],
-    6: [1, 3, 4, 6, 7, 9]
+  // Canonical dot positions on a real die (64×64 viewBox, r=5 per dot)
+  // Columns: left=16, center=32, right=48
+  // Rows:    top=16,  mid=32,   bottom=48
+  const dotSets = {
+    1: [[32,32]],
+    2: [[16,16],[48,48]],
+    3: [[16,16],[32,32],[48,48]],
+    4: [[16,16],[48,16],[16,48],[48,48]],
+    5: [[16,16],[48,16],[32,32],[16,48],[48,48]],
+    6: [[16,16],[48,16],[16,32],[48,32],[16,48],[48,48]]
   };
 
-  const dots = die.querySelectorAll('.dot');
-  (patterns[value] || []).forEach(pos => {
-    if (dots[pos - 1]) dots[pos - 1].classList.add('show');
-  });
+  const dots = (dotSets[value] || []).map(([cx,cy]) =>
+    `<circle cx="${cx}" cy="${cy}" r="8" fill="#1a1a2e"/>`
+  ).join('');
+
+  die.innerHTML = `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">${dots}</svg>`;
 }
 
 /**
@@ -2402,6 +2478,8 @@ loadState();           // restore saved balance and stats from localStorage
 updateBalanceDisplay();
 updateStats();
 initRouletteWheel();   // build SVG wheel segments and number grid
+renderDie('die1', 1);  // init dice faces
+renderDie('die2', 6);
 </script>
 </body>
 </html>
