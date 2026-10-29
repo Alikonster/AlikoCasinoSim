@@ -1,0 +1,201 @@
+/* ============================================================
+   EUROPEAN ROULETTE TABLE STYLES
+   Mahogany Wood Wheel & Full French/European Felt Betting Cloth
+   ============================================================ */
+
+.roulette-area {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 28px;
+  margin: 16px 0;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .roulette-area {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+/* ── 3D Mahogany Roulette Wheel ──────────────────────────── */
+.roulette-wheel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.wheel-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #38190e 55%, #180905 100%);
+  border: 12px solid #281109;
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.9),
+    inset 0 0 20px rgba(0, 0, 0, 0.95),
+    0 0 0 2px var(--brass);
+  overflow: hidden;
+  user-select: none;
+}
+
+.roulette-svg-wheel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+/* Stationary overlay for outer bowl deflectors */
+.roulette-bowl-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.roulette-number-display {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  text-align: center;
+  min-height: 60px;
+  color: var(--brass-light);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+/* ── Realistic Casino Roulette Felt Layout ───────────────── */
+.roulette-table-cloth {
+  background: #08331d;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.roulette-bets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.roulette-bet-btn {
+  padding: 12px 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 6px;
+  color: var(--text-main);
+  font-family: 'Casino Flat', 'Cinzel', serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  user-select: none;
+  font-weight: 400;
+}
+
+.roulette-bet-btn:hover {
+  border-color: var(--brass-light);
+  color: var(--brass-light);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.roulette-bet-btn.selected {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: var(--brass-light);
+  color: #fff;
+  box-shadow: 0 0 14px var(--gold-glow);
+}
+
+.roulette-bet-btn .bet-odds {
+  font-size: 10px;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 3px;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Modal for picking individual numbers */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(145deg, #24130d, #140905);
+  border: 2px solid var(--brass);
+  border-radius: 16px;
+  padding: 28px;
+  width: 380px;
+  max-width: 95vw;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.9);
+  animation: modalPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.roulette-number-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.rn-btn {
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Oswald', sans-serif;
+  min-height: 36px;
+  user-select: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.rn-btn.r { background: #b91c1c; color: #fff; }
+.rn-btn.b { background: #18181b; color: #fff; }
+.rn-btn.g { background: #15803d; color: #fff; }
+
+.rn-btn:hover {
+  transform: scale(1.15);
+  z-index: 2;
+  border-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+}
+
+.rn-btn.selected {
+  box-shadow: 0 0 0 2px #fff, 0 0 12px var(--gold-glow);
+  transform: scale(1.08);
+  border-color: #fff;
+}
